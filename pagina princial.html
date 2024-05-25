@@ -1,0 +1,42 @@
+
+html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis Auto</title>
+</head>
+<body>
+  <h1>Análisis Auto</h1>
+  <p>Aquí puedes encontrar un tutorial especializado en software a través de videos.</p>
+  <form action="/ruta-para-analisis" method="post" enctype="multipart/form-data">
+    <input type="file" name="archivo" id="archivo" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+    <select name="origen" id="origen">
+      <option value="pc">Desde PC</option>
+      <option value="drive">Desde Google Drive</option>
+      <!-- Otras opciones aquí -->
+    </select>
+    <button type="submit">Iniciar Análisis</button>
+  </form>
+</body>
+</html>
+
+
+html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis de Texto</title>
+</head>
+<body>
+  <h1>Análisis de Texto</h1>
+  <p>Este sistema utiliza algoritmos avanzados para analizar los textos con inteligencia artificial.</p>
+  <form action="/ruta-para-analisis" method="post">
+    <textarea name="texto" id="texto" rows="6" cols="50" placeholder="Ingrese el texto a analizar"></textarea>
+    <button type="submit">Analizar Texto</button>
+  </form>
+</body>
+</html>

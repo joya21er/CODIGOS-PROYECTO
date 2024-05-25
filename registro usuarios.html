@@ -1,0 +1,38 @@
+HTML (formulario de registro):
+html
+<form action="registro.php" method="post">
+  <label for="username">Nombre de usuario:</label>
+  <input type="text" id="username" name="username"><br><br>
+
+  <label for="email">Correo electrónico:</label>
+  <input type="email" id="email" name="email"><br><br>
+
+  <label for="password">Contraseña:</label>
+  <input type="password" id="password" name="password"><br><br>
+
+  <input type="submit" value="Registrarse">
+</form>
+
+
+PHP (registro.php):
+php
+<?php
+// Conexión a la base de datos (suponiendo que ya tienes una configurada)
+$conexion = new mysqli("localhost", "usuario", "contraseña", "basededatos");
+
+// Recibiendo y limpiando los datos del formulario
+$username = $conexion->real_escape_string($_POST['username']);
+$email = $conexion->real_escape_string($_POST['email']);
+$password = password_hash($conexion->real_escape_string($_POST['password']), PASSWORD_DEFAULT);
+
+// Insertar los datos en la base de datos
+$query = "INSERT INTO usuarios (nombre_usuario, correo, contraseña) VALUES ('$username', '$email', '$password')";
+if ($conexion->query($query) === TRUE) {
+  echo "¡Usuario registrado exitosamente!";
+} else {
+  echo "Error al registrar al usuario: " . $conexion->error;
+}
+
+// Cerrar la conexión a la base de datos
+$conexion->close();
+?>
